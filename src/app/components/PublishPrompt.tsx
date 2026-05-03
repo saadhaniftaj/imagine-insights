@@ -76,13 +76,14 @@ export default function PublishPrompt() {
           {/* STEP 1: Post-generation */}
           {currentStep === 0 && (
             <div className="glass-card" style={{ padding: 32, maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
-              <div style={{
-                width: "100%", height: 200, borderRadius: 12, marginBottom: 20,
-                background: "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-                display: "flex", alignItems: "center", justifyContent: "center"
-              }}>
-                <span style={{ fontSize: 13, color: "var(--text-muted)" }}>AI Generated Image</span>
-              </div>
+              <img
+                src="/imagine-insights/hero-generation.png"
+                alt="AI Generated Creation"
+                style={{
+                  width: "100%", height: 200, borderRadius: 12, marginBottom: 20,
+                  objectFit: "cover"
+                }}
+              />
               <h3 style={{ fontSize: 20, fontWeight: 700, marginBottom: 6 }}>Your creation is ready</h3>
               <p style={{ fontSize: 13, color: "var(--text-secondary)", marginBottom: 20 }}>
                 Right now most users download and leave. The journey ends here.
@@ -102,7 +103,7 @@ export default function PublishPrompt() {
               <div className="glass-card" style={{ padding: 24 }}>
                 <span style={{ fontSize: 10, fontWeight: 700, color: "var(--accent-red)", textTransform: "uppercase", letterSpacing: 1 }}>Current</span>
                 <div style={{ background: "var(--bg-elevated)", borderRadius: 14, padding: 24, marginTop: 12, textAlign: "center" }}>
-                  <div style={{ width: 120, height: 120, borderRadius: 10, margin: "0 auto 14px", background: "linear-gradient(135deg, #1a1a2e, #0f3460)" }} />
+                  <img src="/imagine-insights/hero-generation.png" alt="Creation" style={{ width: 120, height: 120, borderRadius: 10, margin: "0 auto 14px", objectFit: "cover" }} />
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>Publish and earn tokens!</h3>
                   <p style={{ fontSize: 12, color: "var(--text-secondary)", marginBottom: 16 }}>Earn tokens when someone downloads your work.</p>
                   <button className="btn-secondary" style={{ width: "100%" }}>Publish</button>
@@ -115,7 +116,7 @@ export default function PublishPrompt() {
               <div className="glass-card" style={{ padding: 24, border: "1px solid rgba(138, 63, 252, 0.2)" }}>
                 <span style={{ fontSize: 10, fontWeight: 700, color: "var(--accent-green)", textTransform: "uppercase", letterSpacing: 1 }}>Proposed</span>
                 <div style={{ background: "var(--bg-elevated)", borderRadius: 14, padding: 24, marginTop: 12, textAlign: "center" }}>
-                  <div style={{ width: 120, height: 120, borderRadius: 10, margin: "0 auto 14px", background: "linear-gradient(135deg, #1a1a2e, #0f3460)" }} />
+                  <img src="/imagine-insights/hero-generation.png" alt="Creation" style={{ width: 120, height: 120, borderRadius: 10, margin: "0 auto 14px", objectFit: "cover" }} />
                   <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>Love what you made?</h3>
                   <p style={{ fontSize: 14, fontWeight: 600, marginBottom: 4 }} className="gradient-text">Share it with the community</p>
                   <p style={{ fontSize: 12, color: "var(--text-secondary)", marginBottom: 4 }}>See what other creators think</p>
