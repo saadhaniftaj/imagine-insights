@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Repeat2, Wand2, ChevronRight, Copy } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { mockCommunityCreations } from "../data/mockData";
+import InsightFooter from "./InsightFooter";
 
 export default function CommunityRemix() {
   const [selectedId, setSelectedId] = useState<number | null>(null);
@@ -158,6 +159,16 @@ export default function CommunityRemix() {
           </motion.div>
         )}
       </AnimatePresence>
+      <InsightFooter
+        benefit="Bridges the consumer-to-creator gap. Users who see a creation they admire can reproduce it in one tap instead of manually copying prompts. Reduces friction to near-zero and converts passive browsers into active generators."
+        reasoning="Picsart has 'Remix + Replay.' Adobe Firefly has a 'Remix' button. ImagineArt lets you view prompts and copy manually — but that's 5+ steps vs 1 tap. The generation metadata (prompt, model, style, settings) already exists on every creation. We just need to pipe it into the creation form."
+        metric="Remix Usage Rate"
+        threshold="Success: 5%+ of community viewers | Kill: <2%"
+        sources={[
+          { label: "Picsart Remix feature — product audit", url: "https://picsart.com" },
+          { label: "Consumer-to-Creator research — UXCam", url: "https://uxcam.com" },
+        ]}
+      />
     </div>
   );
 }

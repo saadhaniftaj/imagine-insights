@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Flame, Clock, Trophy, Star, Users, TrendingUp, ChevronRight, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { mockChallenge } from "../data/mockData";
+import InsightFooter from "./InsightFooter";
 
 export default function DailyChallenge() {
   const [voted, setVoted] = useState<Record<number, number>>({});
@@ -196,6 +197,17 @@ export default function DailyChallenge() {
           </div>
         </div>
       </div>
+      <InsightFooter
+        benefit="Shifts engagement cadence from 12 triggers/year (monthly challenges) to 365 triggers/year (daily). Streaks create habit loops — Duolingo's streak system is their #1 retention driver with 37% DAU/MAU ratio vs industry avg of 10-15%."
+        reasoning="NightCafe runs daily challenges with 1-5 star voting, streak bonuses at 5/30/100/365 days, and daily login credits. They have 25M+ users on this model. ImagineArt has monthly challenges with like-based ranking — 12x fewer engagement opportunities per year."
+        metric="Challenge Entry Rate (D30)"
+        threshold="Success: 8%+ of MAU enter at least 1 challenge/month | Kill: <3%"
+        sources={[
+          { label: "NightCafe daily challenges — product audit", url: "https://nightcafe.studio" },
+          { label: "Duolingo streak system — Q4 2025 earnings", url: "https://investors.duolingo.com" },
+          { label: "Gamification retention — Storyly.io", url: "https://storyly.io" },
+        ]}
+      />
     </div>
   );
 }

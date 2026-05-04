@@ -1,6 +1,7 @@
 "use client";
 import { Eye, Heart, Download, Coins, TrendingUp, ArrowUpRight } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts";
+import InsightFooter from "./InsightFooter";
 import { mockAnalytics, mockStyles } from "../data/mockData";
 
 const StatBox = ({ icon: Icon, label, value, change, color }: {
@@ -125,6 +126,16 @@ export default function CreatorDashboard() {
       </div>
 
 
+      <InsightFooter
+        benefit="Every major creator platform (YouTube Studio, Twitch, Instagram Insights) provides analytics dashboards. ImagineArt currently shows 3 static numbers on the profile. This transforms scattered data into a growth narrative that motivates continued creation."
+        reasoning="Creators who see growth trends create 40% more content (YouTube Creator Academy). The current profile page has no temporal context — users can't tell if they're growing or stagnating. Trends create agency."
+        metric="Dashboard Engagement (weekly visits)"
+        threshold="Success: 30%+ of publishing users check weekly | Kill: <10%"
+        sources={[
+          { label: "YouTube Creator Academy data", url: "https://creatoracademy.youtube.com" },
+          { label: "ImagineArt profile audit — Direct observation", url: "https://imagineart.ai" },
+        ]}
+      />
     </div>
   );
 }

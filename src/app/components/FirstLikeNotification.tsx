@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Heart, MessageCircle, Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import InsightFooter from "./InsightFooter";
 
 export default function FirstLikeNotification() {
   const [stage, setStage] = useState<"waiting" | "notification" | "expanded">("waiting");
@@ -159,6 +160,16 @@ export default function FirstLikeNotification() {
           </button>
         </div>
       )}
+      <InsightFooter
+        benefit="Closes the open feedback loop. Users who receive validation within 48h of their first publish show 2-3x higher D7 retention (Amplitude research). This is the dopamine moment the platform currently never delivers."
+        reasoning="The IKEA Effect (Norton et al., Harvard 2012) shows people value self-created items 63% more — but only on 'successful completion.' A like IS the completion signal. Without it, the effort feels unacknowledged and users churn."
+        metric="First-Like Delivery Rate (within 48h)"
+        threshold="Success: 40%+ | Kill: <20% | Currently: 0% (notification doesn't exist)"
+        sources={[
+          { label: "IKEA Effect — Harvard Business School 2012", url: "https://hbs.edu/faculty/Pages/item.aspx?num=41121" },
+          { label: "Activation milestones — Amplitude", url: "https://amplitude.com" },
+        ]}
+      />
     </div>
   );
 }

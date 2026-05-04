@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Cpu, Zap, CheckCircle2, ChevronRight, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { mockModels } from "../data/mockData";
+import InsightFooter from "./InsightFooter";
 
 export default function ModelRecommender() {
   const [prompt, setPrompt] = useState("");
@@ -184,6 +185,16 @@ export default function ModelRecommender() {
           </motion.div>
         )}
       </AnimatePresence>
+      <InsightFooter
+        benefit="Reduces choice paralysis. ImagineArt has 50+ models — the broadest library in the market — but zero guidance on which to use. First-mover opportunity: no AI image platform does prompt-based model recommendation."
+        reasoning="Hick's Law: decision time increases logarithmically with the number of choices. 50+ models with no guidance = decision fatigue = users default to the first model they see or leave. Canva auto-selects via Magic Studio. Picsart has an AI Assistant. This is table-stakes UX that ImagineArt is missing."
+        metric="Model Recommender Adoption"
+        threshold="Success: 20%+ of users select a recommended model | Kill: <8%"
+        sources={[
+          { label: "Hick's Law — UX design research", url: "https://lawsofux.com/hicks-law" },
+          { label: "Canva Magic Studio — product comparison", url: "https://canva.com" },
+        ]}
+      />
     </div>
   );
 }

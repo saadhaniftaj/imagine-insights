@@ -2,7 +2,7 @@
 import { useState } from "react";
 import {
   Send, Heart, Palette, BarChart3, Repeat2, Cpu, Flame,
-  ChevronRight, Sparkles, Activity
+  ChevronRight, Sparkles, Activity, Home as HomeIcon
 } from "lucide-react";
 import dynamic from "next/dynamic";
 
@@ -14,8 +14,10 @@ const CommunityRemix = dynamic(() => import("./components/CommunityRemix"), { ss
 const ModelRecommender = dynamic(() => import("./components/ModelRecommender"), { ssr: false });
 const DailyChallenge = dynamic(() => import("./components/DailyChallenge"), { ssr: false });
 const MetricsPanel = dynamic(() => import("./components/MetricsPanel"), { ssr: false });
+const HomePage = dynamic(() => import("./components/HomePage"), { ssr: false });
 
 const tabs = [
+  { id: "home", label: "Overview", icon: HomeIcon, sub: "Problem & Solution", category: "Overview" },
   { id: "publish", label: "Creator Journey", icon: Send, sub: "Guided Activation", category: "Activation" },
   { id: "like", label: "Validation Loop", icon: Heart, sub: "First-Like Trigger", category: "Activation" },
   { id: "style", label: "Style Identity", icon: Palette, sub: "Switching Cost", category: "Activation" },
@@ -27,7 +29,7 @@ const tabs = [
 ];
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState("publish");
+  const [activeTab, setActiveTab] = useState("home");
   const activeTabData = tabs.find(t => t.id === activeTab);
 
   return (
@@ -57,7 +59,7 @@ export default function Home() {
           </div>
         </div>
 
-        {["Activation", "Technical", "Validation"].map(cat => (
+        {["Overview", "Activation", "Technical", "Validation"].map(cat => (
           <div key={cat} style={{ marginBottom: 6 }}>
             <p style={{
               fontSize: 9, fontWeight: 700, color: "var(--text-muted)",
@@ -100,28 +102,31 @@ export default function Home() {
         minHeight: "100vh",
         background: "linear-gradient(180deg, #192834 0%, #0f0f0f 100%)"
       }}>
-        <div style={{ marginBottom: 28 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-            <span style={{
-              padding: "3px 10px", borderRadius: 20, fontSize: 10, fontWeight: 700,
-              background: activeTabData?.category === "Activation"
-                ? "rgba(138, 63, 252, 0.15)"
-                : activeTabData?.category === "Validation"
-                ? "rgba(16, 185, 129, 0.15)"
-                : "rgba(59, 130, 246, 0.15)",
-              color: activeTabData?.category === "Activation"
-                ? "#a97bff"
-                : activeTabData?.category === "Validation"
-                ? "#10B981"
-                : "#60a5fa",
-              textTransform: "uppercase", letterSpacing: 1
-            }}>
-              {activeTabData?.category}
-            </span>
+        {activeTab !== "home" && (
+          <div style={{ marginBottom: 28 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+              <span style={{
+                padding: "3px 10px", borderRadius: 20, fontSize: 10, fontWeight: 700,
+                background: activeTabData?.category === "Activation"
+                  ? "rgba(138, 63, 252, 0.15)"
+                  : activeTabData?.category === "Validation"
+                  ? "rgba(16, 185, 129, 0.15)"
+                  : "rgba(59, 130, 246, 0.15)",
+                color: activeTabData?.category === "Activation"
+                  ? "#a97bff"
+                  : activeTabData?.category === "Validation"
+                  ? "#10B981"
+                  : "#60a5fa",
+                textTransform: "uppercase", letterSpacing: 1
+              }}>
+                {activeTabData?.category}
+              </span>
+            </div>
+            <h2 style={{ fontSize: 26, fontWeight: 800 }}>{activeTabData?.label}</h2>
           </div>
-          <h2 style={{ fontSize: 26, fontWeight: 800 }}>{activeTabData?.label}</h2>
-        </div>
+        )}
 
+        {activeTab === "home" && <HomePage />}
         {activeTab === "publish" && <PublishPrompt />}
         {activeTab === "like" && <FirstLikeNotification />}
         {activeTab === "style" && <StyleProfileCard />}

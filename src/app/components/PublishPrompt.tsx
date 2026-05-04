@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Send, Heart, Palette, Award, ChevronRight, ChevronLeft, Users, Sparkles, Flame } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import InsightFooter from "./InsightFooter";
 
 const steps = [
   {
@@ -272,6 +273,18 @@ export default function PublishPrompt() {
           Next <ChevronRight size={14} />
         </button>
       </div>
+
+      <InsightFooter
+        benefit="Projected 2-3x increase in first-week publish rate by shifting from transactional ('earn tokens') to social motivation ('share with community'). Higher publish rate is the gateway to the full retention loop."
+        reasoning="The current publish prompt leads with token rewards — but new users don't know what tokens are worth because they haven't hit the paywall. Social validation ('see what creators think') is a universal motivator that doesn't require product knowledge. This is supported by the 90/9/1 Rule: platforms must actively design the path from lurker to contributor."
+        metric="Publish Rate (Week 1)"
+        threshold="Success: 12%+ | Kill: <8% | Current estimate: <5%"
+        sources={[
+          { label: "90/9/1 Rule — Talkwalker 2025", url: "https://talkwalker.com" },
+          { label: "Activation milestones — Amplitude", url: "https://amplitude.com" },
+          { label: "ImagineArt mobile app audit — Direct observation", url: "https://imagineart.ai" },
+        ]}
+      />
     </div>
   );
 }

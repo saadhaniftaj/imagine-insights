@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Palette, Sparkles, Share2, Lock } from "lucide-react";
 import { motion } from "framer-motion";
+import InsightFooter from "./InsightFooter";
 import { mockStyles } from "../data/mockData";
 
 export default function StyleProfileCard() {
@@ -165,6 +166,16 @@ export default function StyleProfileCard() {
           </motion.div>
         </motion.div>
       )}
+      <InsightFooter
+        benefit="Creates a competitive switching cost. Your style profile is unique to ImagineArt and does not transfer to Midjourney, Leonardo, or any competitor. Also triggers the IKEA Effect — seeing your creative identity reflected back increases platform valuation."
+        reasoning="Spotify Wrapped is just a data summary. It drove 200M engagements in 24h and 11M new Premium subscribers in Q4 2024. The value isn't complexity — it's the psychological mirror. This applies directly to creative identity."
+        metric="Style Card Reveal Rate"
+        threshold="Success: 60%+ | Kill: <30% | Trigger: after 5+ generations"
+        sources={[
+          { label: "IKEA Effect — Harvard 2012", url: "https://hbs.edu/faculty/Pages/item.aspx?num=41121" },
+          { label: "Spotify Wrapped engagement — Spotify Q4 2024", url: "https://newsroom.spotify.com" },
+        ]}
+      />
     </div>
   );
 }
